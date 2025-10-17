@@ -15,14 +15,14 @@ const About = () => {
         viewport={{ once: true }}
         className="max-w-4xl text-center md:text-left"
       >
-        {/* Title */}
+   
         <h2 className="text-3xl md:text-4xl font-bold text-primary mb-10 text-center">
           About Me
         </h2>
 
-        {/* Cards Section */}
+       
         <div className="grid md:grid-cols-2 gap-8">
-          {/* Journey */}
+     
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="p-6 rounded-2xl shadow-md bg-white dark:bg-[#2B3443] border-l-4 border-primary transition"
@@ -37,7 +37,7 @@ const About = () => {
             </p>
           </motion.div>
 
-          {/* What I Love */}
+       
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="p-6 rounded-2xl shadow-md bg-white dark:bg-[#2B3443] border-l-4 border-secondary transition"
@@ -52,7 +52,7 @@ const About = () => {
             </p>
           </motion.div>
 
-          {/* Vision */}
+     
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="p-6 rounded-2xl shadow-md bg-white dark:bg-[#2B3443] border-l-4 border-primary transition"
@@ -67,7 +67,7 @@ const About = () => {
             </p>
           </motion.div>
 
-          {/* Hobbies */}
+   
           <motion.div
             whileHover={{ scale: 1.05 }}
             className="p-6 rounded-2xl shadow-md bg-white dark:bg-[#2B3443] border-l-4 border-secondary transition"
