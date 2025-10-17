@@ -100,7 +100,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/" onClick={() => handleScrollTo("home")}>
           <div className="flex justify-center mb-2">
-            <img src="/logo.jpg" alt="Logo" className="w-15  rounded-full border-4 border-[#A43FDB] shadow-lg " />
+            <img src="/logo.jpg" alt="Logo" className="w-12 sm:w-14  rounded-full border-4 border-[#A43FDB] shadow-lg " />
           </div>
         </Link>
       </div>
