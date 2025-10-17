@@ -72,7 +72,7 @@ const Skills = () => {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
-        className="text-3xl md:text-4xl font-bold text-primary mb-12 text-center"
+        className="text-3xl md:text-4xl font-bold text-primary poppins mb-12 text-center"
       >
         My Skills
       </motion.h2>

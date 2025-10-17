@@ -6,7 +6,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="min-h-screen flex items-center justify-center bg-[#F8F8F8] dark:bg-[#1E2939] px-6 md:px-20 py-16"
+      className="min-h-screen flex items-center justify-center bg-[#F8F8F8] dark:bg-[#1E2939] px-6 md:px-20 py-16 mt-44"
     >
       <motion.div
         initial={{ opacity: 0, y: 50 }}
@@ -16,7 +16,7 @@ const About = () => {
         className="max-w-4xl text-center md:text-left"
       >
    
-        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-10 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-10 text-center poppins">
           About Me
         </h2>
 
@@ -28,7 +28,7 @@ const About = () => {
             className="p-6 rounded-2xl shadow-md bg-white dark:bg-[#2B3443] border-l-4 border-primary transition"
           >
             <FaCode className="text-4xl text-primary mb-3" />
-            <h3 className="text-xl font-semibold text-primary mb-2">
+            <h3 className="text-xl font-semibold text-primary mb-2 poppins">
               My Journey
             </h3>
             <p className="text-gray-700 dark:text-gray-300">
@@ -43,7 +43,7 @@ const About = () => {
             className="p-6 rounded-2xl shadow-md bg-white dark:bg-[#2B3443] border-l-4 border-secondary transition"
           >
             <FaLaptopCode className="text-4xl text-secondary mb-3" />
-            <h3 className="text-xl font-semibold text-secondary mb-2">
+            <h3 className="text-xl poppins font-semibold text-secondary mb-2">
               What I Love
             </h3>
             <p className="text-gray-700 dark:text-gray-300">
@@ -58,7 +58,7 @@ const About = () => {
             className="p-6 rounded-2xl shadow-md bg-white dark:bg-[#2B3443] border-l-4 border-primary transition"
           >
             <FaRocket className="text-4xl text-primary mb-3" />
-            <h3 className="text-xl font-semibold text-primary mb-2">
+            <h3 className="text-xl font-semibold text-primary poppins mb-2">
               My Vision
             </h3>
             <p className="text-gray-700 dark:text-gray-300">
@@ -73,7 +73,7 @@ const About = () => {
             className="p-6 rounded-2xl shadow-md bg-white dark:bg-[#2B3443] border-l-4 border-secondary transition"
           >
             <FaBookOpen className="text-4xl text-secondary mb-3" />
-            <h3 className="text-xl font-semibold text-secondary mb-2">
+            <h3 className="text-xl font-semibold text-secondary  poppins mb-2">
               Hobbies
             </h3>
             <p className="text-gray-700 dark:text-gray-300">

@@ -6,7 +6,7 @@ const Contact = () => {
       id="contact"
       className="min-h-screen bg-white dark:bg-[#1E2939] px-6 md:px-20 py-16 flex flex-col items-center justify-center"
     >
-      <h2 className="text-4xl font-bold text-primary mb-12 text-center">
+      <h2 className="text-4xl font-bold text-primary mb-12 text-center poppins">
         Contact Me
       </h2>
 
