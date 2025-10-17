@@ -7,6 +7,6 @@ import { RouterProvider } from 'react-router'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-   <RouterProvider router={Routes} />,
+   <div className='nunito'><RouterProvider router={Routes} />,</div>
   </StrictMode>,
 )
