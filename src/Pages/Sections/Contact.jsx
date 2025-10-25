@@ -16,7 +16,7 @@ const Contact = () => {
           <a
             href="mailto:nishatjahanposhpa@gmail.com
 "
-            className="text-lg text-gray-700 dark:text-gray-300 font-medium hover:text-primary transition"
+            className="text-sm sm:text-lg text-gray-700 dark:text-gray-300 font-medium hover:text-primary transition"
           >
             nishatjahanposhpa@gmail.com
           </a>
@@ -26,7 +26,7 @@ const Contact = () => {
           <span className="text-2xl">📞</span>
           <a
             href="tel:+8801830322562"
-            className="text-lg text-gray-700 dark:text-gray-300 font-medium hover:text-primary transition"
+            className=" text-sm sm:text-lg text-gray-700 dark:text-gray-300 font-medium hover:text-primary transition"
           >
             +8801830 32 2562
           </a>

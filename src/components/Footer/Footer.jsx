@@ -4,7 +4,7 @@ import logo from "../../../public/logo.jpg"; // replace with your actual logo pa
 
 const Footer = () => {
   return (
-    <footer className="bg-[#1E2939] dark:bg-[#111827] text-gray-300 py-10 px-6 md:px-20">
+    <footer className="bg-[#1E2939] dark:bg-[#111827] text-gray-300">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
         {/* Logo */}
         <div className="flex flex-col items-center md:items-start">

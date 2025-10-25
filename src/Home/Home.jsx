@@ -7,7 +7,7 @@ import Contact from "../Pages/Sections/Contact";
 
 const Home = () => {
   return (
-    <>
+    <div className="">
       <div id="hero">
         <Hero></Hero>
       </div>
@@ -23,7 +23,7 @@ const Home = () => {
       <div id="contact">
         <Contact></Contact>
       </div>
-    </>
+    </div>
   );
 };
 
