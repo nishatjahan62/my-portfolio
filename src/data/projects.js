@@ -38,7 +38,7 @@ const projects = [
     ],
     impact:
       "Empowers learners and writers to connect, share, and grow intellectually through meaningful content. Enhances community engagement with discussions and author-follower interactions.",
-    tools: ["React", "Tailwind", "Framer Motion", "Firebase", "MongoDB", "Express", "JWT"],
+    tools: ["React", "Tailwind", "Strip", "Firebase", "MongoDB", "Express", "JWT"],
     links: {
       live: "https://ph-b11-assignment-11.web.app/",
       frontend: "https://github.com/nishatjahan62/Knowledge-Edge-projectd",

@@ -10,14 +10,14 @@ const techLogos = {
   Tailwind: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
   Firebase: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
   MongoDB: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-  Express:
-    "https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png", // dark logo fix
+  Express: "https://upload.wikimedia.org/wikipedia/commons/6/64/Expressjs.png",
   NodeJS: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
   JWT: "https://jwt.io/img/pic_logo.svg",
   Stripe: "https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg",
   SweetAlert2: "https://sweetalert2.github.io/images/logo.png",
-  "Framer Motion": "https://upload.wikimedia.org/wikipedia/commons/6/62/Framer-motion-logo.svg",
+  "FramerMotion": "https://upload.wikimedia.org/wikipedia/commons/6/62/Framer-motion-logo.svg",
 };
+
 
 const ProjectDetails = () => {
   const { id } = useParams();
