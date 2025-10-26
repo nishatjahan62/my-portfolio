@@ -1,8 +1,8 @@
 import React from "react";
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import projects from "../../data/projects";
 import { motion } from "framer-motion";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { FaGithub, FaExternalLinkAlt, FaHome } from "react-icons/fa";
 import Button from "../Button/Button";
 
 const techLogos = {
@@ -138,6 +138,7 @@ const ProjectDetails = () => {
           </Button>
         )}
       </motion.div>
+      <Link to="/"> <div className="flex justify-center items-center mt-8"><Button icon={FaHome}>Go Bake to Home</Button></div> </Link>
     </section>
   );
 };

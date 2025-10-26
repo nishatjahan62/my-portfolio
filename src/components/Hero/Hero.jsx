@@ -9,7 +9,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className=" flex flex-col md:flex-row items-center justify-center px-6 sm:px-10 lg:px-20 py-10 pb-14 sm:py-18 sm:pt-30 
+      className=" flex flex-col md:flex-row items-center justify-center px-6 sm:px-10 lg:px-20 py-10 pb-14 sm:py-18 pt-20 sm:pt-30 
                  bg-gradient-to-br from-primary/5 via-secondary/10 to-white
                  dark:from-[#0B1120] dark:via-[#121A2B] dark:to-[#0B1120] transition-all duration-500"
     >
@@ -118,7 +118,7 @@ const Hero = () => {
           </a>
 
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/nishatjahan62/"
             target="_blank"
             rel="noreferrer"
             className="text-gray-800 dark:text-gray-300 hover:text-secondary transition-colors duration-300"
@@ -127,7 +127,7 @@ const Hero = () => {
           </a>
 
           <a
-            href="https://facebook.com/nishatjahan"
+            href="https://facebook.com/nishatjahan62"
             target="_blank"
             rel="noreferrer"
             className="text-gray-800 dark:text-gray-300 hover:text-[#1877F2] transition-colors duration-300"

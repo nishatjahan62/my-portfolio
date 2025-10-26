@@ -3,7 +3,7 @@ const projects = [
   {
     id: 1,
     name: "Donate-A-Bite",
-    image: "/public/donate-a-bite.png", 
+    image: "https://i.ibb.co.com/3ydhhD5w/Donate-A-Bite.png", 
     overview:
       " A local food donation platform where restaurants can share surplus food, charities can request pickups, and admins manage users and donations.",
     keyFeatures: [
@@ -25,7 +25,7 @@ const projects = [
    {
     id: 2,
     name: "KnowledgeEdge",
-    image: "/public/KnowledgeEdge.png", 
+    image: "https://i.ibb.co.com/wNqD9YzY/Knowledge-Edge.png", 
     overview:
       " An article-sharing platform where users can explore, publish, and engage with ideas that matter. Designed with modern web technologies and clean UI/UX to create a smooth learning and reading experience.",
     keyFeatures: [

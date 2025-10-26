@@ -11,7 +11,7 @@ const Contact = () => {
       className="py-20 px-6 md:px-20 bg-white dark:bg-[#111827] text-gray-800 dark:text-gray-200"
     >
       {/* Heading */}
-       <motion.div
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.5 }}
@@ -19,25 +19,21 @@ const Contact = () => {
         className="text-center mb-14"
       >
         <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-primary bg-gradient-to-r from-primary to-secondary poppins">
-       
-   Let's Work Together!
-     
+          Let's Work Together!
         </h2>
-  
       </motion.div>
-     
 
       {/* Container */}
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-start text-center md:text-left">
         {/* Left side - Info */}
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 items-center md:items-start">
           <p className="text-lg leading-relaxed">
             I'm always open to new opportunities, collaborations, or even just a
             friendly chat. Feel free to reach out using the form or connect with
             me directly through my social links.
           </p>
 
-          <div className="flex flex-col gap-3 text-base">
+          <div className="flex flex-col gap-3 text-base items-center md:items-start">
             <div className="flex items-center gap-3">
               <FaPhoneAlt className="text-primary" />
               <span>+880 1830-322562</span>
@@ -48,9 +44,9 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="flex gap-5 text-2xl mt-4">
+          <div className="flex gap-5 text-2xl mt-4 justify-center md:justify-start">
             <a
-              href="https://facebook.com/nishatjahan"
+              href="https://www.facebook.com/nishatjahan62"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-primary transition"
@@ -93,8 +89,9 @@ const Contact = () => {
             rows="4"
             className="w-full px-5 py-3 rounded-xl bg-transparent border border-primary/80 focus:outline-none focus:ring-2 focus:ring-primary"
           ></textarea>
-         <div className="mx-auto"> <Button icon={FaMessage} >Send Message</Button></div>
-
+          <div className="mx-auto md:mx-0">
+            <Button icon={FaMessage}>Send Message</Button>
+          </div>
         </form>
       </div>
     </section>
