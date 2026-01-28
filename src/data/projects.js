@@ -17,7 +17,7 @@ const projects = [
       "Helps reduce food waste and supports local charities through an easy-to-use digital platform.",
     tools: ["React", "Tailwind", "Firebase", "Stripe", "SweetAlert2", "JWT"],
     links: {
-      live: "https://ph-b11-assignment-12.web.app/",
+      live: "https://donate-a-bite.netlify.app/",
       frontend: "https://github.com/nishatjahan62/Donate-a-bite-project",
       backend: "https://github.com/nishatjahan62/Donate-a-bite-project-backend",
     },
@@ -40,7 +40,7 @@ const projects = [
       "Empowers learners and writers to connect, share, and grow intellectually through meaningful content. Enhances community engagement with discussions and author-follower interactions.",
     tools: ["React", "Tailwind", "Strip", "Firebase", "MongoDB", "Express", "JWT"],
     links: {
-      live: "https://ph-b11-assignment-11.web.app/",
+      live: "https://knowledge-edge.netlify.app/",
       frontend: "https://github.com/nishatjahan62/Knowledge-Edge-projectd",
       backend: "https://github.com/nishatjahan62/Knowledge-Edge-project-backend",
     },

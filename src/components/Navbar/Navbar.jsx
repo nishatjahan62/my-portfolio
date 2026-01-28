@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { FaRegSun } from "react-icons/fa6";
 import { FaMoon } from "react-icons/fa";
+import { Link, NavLink } from "react-router"; 
 
 const Navbar = () => {
   const [active, setActive] = useState("hero");
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
-  const navbarHeight = 80; // Adjust to your actual navbar height
+  const navbarHeight = 80;
 
   const links = [
     { id: "hero", title: "Home" },
@@ -24,7 +25,11 @@ const Navbar = () => {
       const scrollPos = window.scrollY + navbarHeight / 2;
       links.forEach((link) => {
         const section = document.getElementById(link.id);
-        if (section && section.offsetTop <= scrollPos && section.offsetTop + section.offsetHeight > scrollPos) {
+        if (
+          section &&
+          section.offsetTop <= scrollPos &&
+          section.offsetTop + section.offsetHeight > scrollPos
+        ) {
           setActive(link.id);
         }
       });
@@ -33,14 +38,17 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Smooth scroll to section
+  // Smooth scroll
   const handleScrollTo = (id) => {
     const section = document.getElementById(id);
     if (section) {
-      const y = section.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+      const y =
+        section.getBoundingClientRect().top +
+        window.pageYOffset -
+        navbarHeight;
       window.scrollTo({ top: y, behavior: "smooth" });
       setActive(id);
-      setDropdownOpen(false); // close mobile dropdown
+      setDropdownOpen(false);
     }
   };
 
@@ -51,13 +59,14 @@ const Navbar = () => {
     html.classList.toggle("dark", theme === "dark");
   }, [theme]);
 
-  // Navigation items
   const navItems = links.map((link) => (
     <li key={link.id}>
       <button
         onClick={() => handleScrollTo(link.id)}
         className={`font-medium transition-colors ${
-          active === link.id ? "text-[#A43FDB] font-semibold" : "hover:text-[#A43FDB]"
+          active === link.id
+            ? "text-[#A43FDB] font-semibold"
+            : "hover:text-[#A43FDB]"
         }`}
       >
         {link.title}
@@ -66,16 +75,14 @@ const Navbar = () => {
   ));
 
   return (
-    <div className="navbar bg-white dark:bg-[#1E2939] shadow-sm lg:px-20 px-8 text-gray-800 dark:text-gray-200 font-poppins fixed top-0 left-0 w-full z-50">
+    <div className="navbar bg-white dark:bg-[#1E2939] lg:px-20 px-8 text-gray-800 dark:text-gray-200 font-poppins fixed top-0 left-0 w-full z-50">
       {/* Navbar Start */}
       <div className="navbar-start">
         {/* Mobile Dropdown */}
         <div className="dropdown relative">
-          <div
-            tabIndex={0}
-            role="button"
+          <button
             className="lg:hidden pr-2"
-            onClick={() => setDropdownOpen(!isDropdownOpen)}
+            onClick={() => setDropdownOpen(!isDropdownOpen)} // ✅ use button
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -84,18 +91,29 @@ const Navbar = () => {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />
             </svg>
-          </div>
+          </button>
           {isDropdownOpen && (
-            <ul className="menu menu-sm dropdown-content bg-white dark:bg-[#1E2939] rounded-box z-10 mt-3 w-52 p-2 shadow absolute">
+            <ul
+              className="menu menu-sm dropdown-content bg-white dark:bg-[#1E2939]
+              rounded-box z-50 mt-3 w-52 p-2 shadow absolute" // ✅ fixed z-index
+            >
               {navItems}
             </ul>
           )}
         </div>
 
         {/* Logo + Name */}
-        <button onClick={() => handleScrollTo("hero")} className="flex items-center gap-3">
+        <button
+          onClick={() => handleScrollTo("hero")}
+          className="flex items-center gap-3"
+        >
           <img
             src="/logo.jpg"
             alt="Logo"

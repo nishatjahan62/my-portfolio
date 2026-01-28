@@ -1,98 +1,199 @@
-import React from "react";
-import { FaFacebook, FaLinkedin, FaGithub, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
-import Button from "../Button/Button";
-import { FaMessage } from "react-icons/fa6";
+import React, { useState } from "react";
+import { FaFacebook, FaLinkedin, FaGithub, FaPhoneAlt } from "react-icons/fa";
+import { HiOutlineMail } from "react-icons/hi";
 import { motion } from "framer-motion";
+import Swal from "sweetalert2";
+import Button from "../Button/Button";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const res = await fetch(
+        "https://my-portfolio-backend-theta.vercel.app/api/contact",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      const data = await res.json();
+
+      if (data.success) {
+      Swal.fire({
+  title: "<strong>🎉 Message Sent!</strong>",
+  html: "<p>Thank you for reaching out. I’ll respond as soon as possible.</p>",
+  icon: "success",
+  showConfirmButton: false,
+  timer: 2500,             
+});
+
+
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        throw new Error();
+      }
+    } catch {
+      Swal.fire({
+        icon: "error",
+        title: "Something went wrong",
+        text: "Please try again later.",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section
       id="contact"
-      className="py-20 px-6 md:px-20 bg-white dark:bg-[#111827] text-gray-800 dark:text-gray-200"
+      className="py-24 px-6 md:px-20 bg-white dark:bg-[#0f172a] text-gray-800 dark:text-gray-200"
     >
-      {/* Heading */}
+      {/* Top heading */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.5 }}
-        transition={{ duration: 0.5 }}
-        className="text-center mb-14"
+        transition={{ duration: 0.6 }}
+        className="max-w-3xl  text-center mb-20"
       >
-        <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-primary bg-gradient-to-r from-primary to-secondary poppins">
-          Let's Work Together!
+        <h2 className="text-4xl text-primary md:text-5xl font-bold mb-6">
+          Get in Touch
         </h2>
+        <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+          Have a question, an idea, or an opportunity in mind?
+          <br />
+          I’d love to hear from you and explore how we can work together.
+        </p>
       </motion.div>
 
-      {/* Container */}
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-start text-center md:text-left">
-        {/* Left side - Info */}
-        <div className="flex flex-col gap-6 items-center md:items-start">
-          <p className="text-lg leading-relaxed">
-            I'm always open to new opportunities, collaborations, or even just a
-            friendly chat. Feel free to reach out using the form or connect with
-            me directly through my social links.
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+        {/* Left content */}
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          className="space-y-8"
+        >
+          <p className="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+            I value thoughtful conversations and purposeful collaboration.
+            Whether you’re reaching out with a project idea, a learning opportunity,
+            or a simple message — your words are always welcome here.
           </p>
 
-          <div className="flex flex-col gap-3 text-base items-center md:items-start">
-            <div className="flex items-center gap-3">
+          <div className="space-y-4">
+            <div className="flex items-center gap-4">
               <FaPhoneAlt className="text-primary" />
-              <span>+880 1830-322562</span>
+              <span><a
+            href="tel:+880130322562"
+            className="hover:text-[#A43FDB] transition"
+          >
+            +880 1830-322562 (WhatsApp)
+          </a></span>
             </div>
-            <div className="flex items-center gap-3">
-              <FaEnvelope className="text-primary" />
-              <span>nishatjahanposhpa@gmail.com.com</span>
+            <div className="flex items-center gap-4">
+              <HiOutlineMail className="text-primary text-xl" />
+              <span> <a
+            href="mailto:nishatjahanposhpa@gmail.com"
+            className="hover:text-[#A43FDB] transition"
+          >
+            nishatjahanposhpa@gmail.com
+          </a></span>
             </div>
           </div>
 
-          <div className="flex gap-5 text-2xl mt-4 justify-center md:justify-start">
-            <a
-              href="https://www.facebook.com/nishatjahan62"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary transition"
-            >
-              <FaFacebook />
-            </a>
-            <a
-              href="https://linkedin.com/in/nishatjahan62"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary transition"
-            >
-              <FaLinkedin />
-            </a>
-            <a
-              href="https://github.com/nishatjahan62"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-primary transition"
-            >
-              <FaGithub />
-            </a>
+          <div className="flex gap-6 text-2xl">
+             <a
+                          href="https://github.com/nishatjahan62"
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label="GitHub"
+                          className="hover:text-[#A43FDB] transition"
+                        >
+                          <FaGithub />
+                        </a>
+                        <a
+                          href="https://www.linkedin.com/in/nishatjahan62/"
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label="LinkedIn"
+                          className="hover:text-[#A43FDB] transition"
+                        >
+                          <FaLinkedin />
+                        </a>
+                        <a
+                          href="https://facebook.com/nishatJahan62"
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label="Facebook"
+                          className="hover:text-[#A43FDB] transition"
+                        >
+                          <FaFacebook />
+                        </a>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Right side - Form */}
-        <form className="flex flex-col gap-5 bg-gray-100 dark:bg-[#1f2937] p-8 rounded-2xl shadow-lg">
+        {/* Form */}
+        <motion.form
+          onSubmit={handleSubmit}
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+          className="bg-gray-50 dark:bg-[#1e293b] p-6 sm:p-10 rounded-3xl space-y-6"
+        >
           <input
             type="text"
+            name="name"
             placeholder="Your Name"
-            className="w-full px-5 py-3 rounded-xl bg-transparent border border-primary/80 focus:outline-none focus:ring-2 focus:ring-primary"
+            value={formData.name}
+            onChange={handleChange}
+            required
+            className="w-full px-5 py-3 rounded-xl bg-transparent border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-primary outline-none"
           />
+
           <input
             type="email"
+            name="email"
             placeholder="Your Email"
-            className="w-full px-5 py-3 rounded-xl bg-transparent border border-primary/80 focus:outline-none focus:ring-2 focus:ring-primary"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            className="w-full px-5 py-3 rounded-xl bg-transparent border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-primary outline-none"
           />
+
           <textarea
-            placeholder="Your Message"
+            name="message"
             rows="4"
-            className="w-full px-5 py-3 rounded-xl bg-transparent border border-primary/80 focus:outline-none focus:ring-2 focus:ring-primary"
-          ></textarea>
-          <div className="mx-auto md:mx-0">
-            <Button icon={FaMessage}>Send Message</Button>
-          </div>
-        </form>
+            placeholder="Your Message"
+            value={formData.message}
+            onChange={handleChange}
+            required
+            className="w-full px-5 py-3 rounded-xl bg-transparent border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-primary outline-none"
+          />
+
+          {/* Button aligned LEFT */}
+         <Button
+  type="submit"
+  icon={HiOutlineMail}
+  disabled={loading}
+>
+  {loading ? "Sending..." : "Send Message"}
+</Button>
+        </motion.form>
       </div>
     </section>
   );
