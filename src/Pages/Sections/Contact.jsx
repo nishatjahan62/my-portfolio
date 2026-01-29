@@ -98,12 +98,13 @@ const Contact = () => {
           <div className="space-y-4">
             <div className="flex items-center gap-4">
               <FaPhoneAlt className="text-primary" />
-              <span><a
-            href="tel:+880130322562"
-            className="hover:text-[#A43FDB] transition"
-          >
-            +880 1830-322562 (WhatsApp)
-          </a></span>
+            <a
+  href="tel:+8801830322562"
+  className="hover:text-[#A43FDB] transition"
+>
+  +880 1830-322562 (WhatsApp)
+</a>
+
             </div>
             <div className="flex items-center gap-4">
               <HiOutlineMail className="text-primary text-xl" />

@@ -1,9 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaFacebook, FaDownload } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaFacebook, FaDownload, FaPhoneAlt } from "react-icons/fa";
 import Logo from "../../../public/logo.jpg";
 import Resume from "../../../public/Resume.pdf";
 import Button from "../../Pages/Button/Button";
+import { HiOutlineMail } from "react-icons/hi";
 
 const Hero = () => {
   return (
@@ -130,9 +131,17 @@ const Hero = () => {
             href="https://facebook.com/nishatjahan62"
             target="_blank"
             rel="noreferrer"
-            className="text-gray-800 dark:text-gray-300 hover:text-[#1877F2] transition-colors duration-300"
+            className="text-gray-800  dark:text-gray-300 hover:text-secondary transition-colors duration-300"
           >
-            <FaFacebook />
+            <HiOutlineMail/>
+          </a>
+           <a
+            href="tel:+8801830322562"
+            target="_blank"
+            rel="noreferrer"
+            className="text-gray-800 dark:text-gray-300 hover:text-secondary transition-colors duration-300"
+          >
+            <FaPhoneAlt />
           </a>
         </motion.div>
       </div>

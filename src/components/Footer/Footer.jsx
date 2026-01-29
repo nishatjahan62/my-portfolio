@@ -27,18 +27,18 @@ const Footer = () => {
           <h3 className="text-lg font-semibold text-[#A43FDB] mb-3">
             Contact
           </h3>
-          <a
+         <span> <a
             href="mailto:nishatjahanposhpa@gmail.com"
             className="hover:text-[#A43FDB] transition"
           >
             nishatjahanposhpa@gmail.com
-          </a>
-          <a
-            href="tel:+880130322562"
-            className="hover:text-[#A43FDB] transition"
-          >
-            +880 1303-22562
-          </a>
+          </a></span>
+           <a
+  href="tel:+8801830322562"
+  className="hover:text-[#A43FDB] transition"
+>
+  +880 1830-322562 (WhatsApp)
+</a>
           <a
             href="https://wa.me/880130322562"
             target="_blank"
