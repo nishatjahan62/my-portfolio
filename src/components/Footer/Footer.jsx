@@ -34,19 +34,11 @@ const Footer = () => {
             nishatjahanposhpa@gmail.com
           </a></span>
            <a
-  href="tel:+8801830322562"
+  href="https://wa.me/8801830322562"
   className="hover:text-[#A43FDB] transition"
 >
   +880 1830-322562 (WhatsApp)
 </a>
-          <a
-            href="https://wa.me/880130322562"
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-[#A43FDB] transition"
-          >
-            WhatsApp
-          </a>
         </div>
 
         {/* Social */}

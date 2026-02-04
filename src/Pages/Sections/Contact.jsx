@@ -99,7 +99,7 @@ const Contact = () => {
             <div className="flex items-center gap-4">
               <FaPhoneAlt className="text-primary" />
             <a
-  href="tel:+8801830322562"
+ href="https://wa.me/8801830322562"
   className="hover:text-[#A43FDB] transition"
 >
   +880 1830-322562 (WhatsApp)
