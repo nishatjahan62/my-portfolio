@@ -46,6 +46,7 @@ const Footer = () => {
           <h3 className="text-lg font-semibold text-[#A43FDB] mb-3">
             Connect
           </h3>
+        
           <div className="flex gap-5 text-2xl">
             <a
               href="https://github.com/nishatjahan62"
