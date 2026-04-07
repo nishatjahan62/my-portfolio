@@ -1,0 +1,4 @@
+/* ── Smooth scroll (add this at the top of your index.css) ── */
+html {
+  scroll-behavior: smooth;
+}
