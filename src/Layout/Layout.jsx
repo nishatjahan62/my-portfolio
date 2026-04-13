@@ -5,6 +5,7 @@ import { Outlet } from 'react-router';
 import Footer from '../components/Footer/Footer';
 import CustomCursor from '../components/CustomCorsur';
 import FloatingWhatsApp from '../components/floatingWhatsup';
+import ReactLenis from 'lenis/react';
 // import FloatingWhatsApp from '../components/FloatingWhatsApp';
 
 /* ── Global Particle Canvas ── */
@@ -92,6 +93,18 @@ const Orb = ({ className, delay = 0, duration = 7 }) => (
   />
 );
 
+<ReactLenis
+      root
+      options={{
+        duration: 1.35,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+        smoothTouch: false,
+        wheelMultiplier: 1.1,
+        touchMultiplier: 2,
+        lerp: 0.1,           // smoothness control
+      }}
+/>
 const Layout = () => {
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-primary/5 via-secondary/10 to-white dark:from-[#0B1120] dark:via-[#121A2B] dark:to-[#0B1120] transition-colors duration-500">

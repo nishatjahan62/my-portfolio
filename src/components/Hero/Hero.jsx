@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaDownload, FaPhoneAlt } from "react-icons/fa";
@@ -7,7 +5,7 @@ import Logo from "../../../public/logo.jpg";
 import Resume from "../../../public/Resume.pdf";
 import Button from "../../Pages/Button/Button";
 import { HiOutlineMail } from "react-icons/hi";
-import { FaTelegram } from "react-icons/fa6";
+import { FaTelegram, FaWhatsapp } from "react-icons/fa6";
 
 /* ── Canvas particle field ── */
 const ParticleCanvas = () => {
@@ -67,7 +65,10 @@ const ParticleCanvas = () => {
     };
   }, []);
   return (
-    <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none opacity-60" />
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full pointer-events-none opacity-60"
+    />
   );
 };
 
@@ -83,8 +84,12 @@ const Orb = ({ className, delay = 0, duration = 7 }) => (
 /* ── Social icon button ── */
 const SocialLink = ({ href, icon, label }) => (
   <motion.a
-    href={href} target="_blank" rel="noreferrer" aria-label={label}
-    whileHover={{ scale: 1.18, y: -4 }} whileTap={{ scale: 0.95 }}
+    href={href}
+    target="_blank"
+    rel="noreferrer"
+    aria-label={label}
+    whileHover={{ scale: 1.18, y: -4 }}
+    whileTap={{ scale: 0.95 }}
     className="w-10 h-10 rounded-xl flex items-center justify-center text-lg
                bg-white/70 dark:bg-white/5 border border-primary/20
                text-gray-700 dark:text-gray-300 hover:text-primary
@@ -94,8 +99,6 @@ const SocialLink = ({ href, icon, label }) => (
     {icon}
   </motion.a>
 );
-
-
 
 //   const [visibleLines, setVisibleLines] = useState(0);
 
@@ -189,25 +192,40 @@ const CodeDivider = () => {
       >
         {/* Same sized tags */}
         <span className="leading-none text-base font-semibold">&lt;&gt;</span>
-        
+
         <div className="flex flex-col gap-4">
           {/* Red Dot with Pulse */}
-          <motion.span 
+          <motion.span
             animate={{ scale: [1, 1.15, 1], opacity: [0.7, 1, 0.7] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0 }}
-            className="w-3 h-3 rounded-full bg-red-500/90 shadow-lg shadow-red-500/20" 
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0,
+            }}
+            className="w-3 h-3 rounded-full bg-red-500/90 shadow-lg shadow-red-500/20"
           />
           {/* Yellow Dot with Pulse */}
-          <motion.span 
+          <motion.span
             animate={{ scale: [1, 1.15, 1], opacity: [0.7, 1, 0.7] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
-            className="w-3 h-3 rounded-full bg-yellow-500/90 shadow-lg shadow-yellow-500/20" 
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.3,
+            }}
+            className="w-3 h-3 rounded-full bg-yellow-500/90 shadow-lg shadow-yellow-500/20"
           />
           {/* Green Dot with Pulse */}
-          <motion.span 
+          <motion.span
             animate={{ scale: [1, 1.15, 1], opacity: [0.7, 1, 0.7] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
-            className="w-3 h-3 rounded-full bg-green-500/90 shadow-lg shadow-green-500/20" 
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.6,
+            }}
+            className="w-3 h-3 rounded-full bg-green-500/90 shadow-lg shadow-green-500/20"
           />
         </div>
 
@@ -219,7 +237,12 @@ const CodeDivider = () => {
         <motion.div
           className="absolute w-1.5 h-1.5 rounded-full bg-primary left-1/2 -translate-x-1/2"
           animate={{ y: [0, 80, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
         />
       </div>
     </div>
@@ -237,9 +260,21 @@ const Hero = () => {
                  transition-all duration-500 overflow-hidden min-h-screen"
     >
       <ParticleCanvas />
-      <Orb className="w-72 h-72 bg-primary/20 top-[-4rem] left-[-4rem]" delay={0} duration={7} />
-      <Orb className="w-96 h-96 bg-secondary/15 bottom-[-5rem] right-[-5rem]" delay={1.5} duration={9} />
-      <Orb className="w-40 h-40 bg-primary/10 top-1/2 left-1/3" delay={3} duration={6} />
+      <Orb
+        className="w-72 h-72 bg-primary/20 top-[-4rem] left-[-4rem]"
+        delay={0}
+        duration={7}
+      />
+      <Orb
+        className="w-96 h-96 bg-secondary/15 bottom-[-5rem] right-[-5rem]"
+        delay={1.5}
+        duration={9}
+      />
+      <Orb
+        className="w-40 h-40 bg-primary/10 top-1/2 left-1/3"
+        delay={3}
+        duration={6}
+      />
 
       {/* ── Profile column ── */}
       <motion.div
@@ -254,13 +289,19 @@ const Hero = () => {
             animate={{ rotate: 360 }}
             transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
             className="absolute -inset-2 rounded-full"
-            style={{ background: "conic-gradient(from 0deg, #A43FDB 0%, #6366f1 40%, transparent 60%, #A43FDB 100%)" }}
+            style={{
+              background:
+                "conic-gradient(from 0deg, #A43FDB 0%, #6366f1 40%, transparent 60%, #A43FDB 100%)",
+            }}
           />
           <motion.div
             animate={{ rotate: -360 }}
             transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
             className="absolute -inset-4 rounded-full opacity-25"
-            style={{ background: "conic-gradient(from 180deg, #A43FDB 0%, transparent 50%, #6366f1 100%)" }}
+            style={{
+              background:
+                "conic-gradient(from 180deg, #A43FDB 0%, transparent 50%, #6366f1 100%)",
+            }}
           />
           <motion.img
             whileHover={{ scale: 1.06 }}
@@ -307,11 +348,15 @@ const Hero = () => {
             </span>
             <motion.svg
               className="absolute -bottom-2 left-0 w-full"
-              viewBox="0 0 200 12" fill="none"
+              viewBox="0 0 200 12"
+              fill="none"
             >
               <motion.path
                 d="M2 8 Q50 2 100 8 Q150 14 198 8"
-                stroke="url(#squiggle)" strokeWidth="3" strokeLinecap="round" fill="none"
+                stroke="url(#squiggle)"
+                strokeWidth="3"
+                strokeLinecap="round"
+                fill="none"
                 initial={{ pathLength: 0 }}
                 whileInView={{ pathLength: 1 }}
                 viewport={{ once: false }}
@@ -324,8 +369,8 @@ const Hero = () => {
                 </linearGradient>
               </defs>
             </motion.svg>
-          </span>
-          {" "}Jahan
+          </span>{" "}
+          Jahan
         </motion.h1>
 
         {/* Description */}
@@ -339,8 +384,9 @@ const Hero = () => {
           Passionate about building{" "}
           <span className="text-primary font-medium">modern</span>,{" "}
           <span className="text-secondary font-medium">interactive</span>, and{" "}
-          <span className="text-primary font-medium">scalable</span>{" "}
-          web applications. I love blending design and functionality to create seamless digital experiences.
+          <span className="text-primary font-medium">scalable</span> web
+          applications. I love blending design and functionality to create
+          seamless digital experiences.
         </motion.p>
 
         {/* Buttons */}
@@ -351,50 +397,78 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="mt-8 flex flex-wrap justify-center md:justify-start gap-4"
         >
-          <Button href={Resume} download="Nishat_Jahan_Resume.pdf" icon={FaDownload}>
+          <Button
+            href={Resume}
+            download="Nishat_Jahan_Resume.pdf"
+            icon={FaDownload}
+          >
             Get Resume
           </Button>
           <Button href="#projects">View Projects</Button>
         </motion.div>
 
         {/* Socials */}
-<div className="flex justify-center md:justify-start gap-3 mt-8">
-  {[
-    { href: "https://github.com/nishatjahan62", icon: <FaGithub />, label: "GitHub" },
-    { href: "https://www.linkedin.com/in/nishatjahan62/", icon: <FaLinkedin />, label: "LinkedIn" },
-    { href: "https://t.me/nishatjahan62", icon: <FaTelegram />, label: "Telegram" },
-    { href: "mailto:nishatjahan62@gmail.com", icon: <HiOutlineMail />, label: "Email" },
-    { href: "tel:+8801830322562", icon: <FaPhoneAlt />, label: "Phone" },
-  ].map((social, index) => (
-    <motion.div
-      key={index}
-      animate={{
-        // Dhire dhire color change hobe
-        color: ["#9ca3af", "#A43FDB", "#9ca3af"], 
-        borderColor: ["rgba(164,63,219,0.1)", "rgba(164,63,219,0.8)", "rgba(164,63,219,0.1)"],
-        boxShadow: [
-          "0px 0px 0px rgba(164,63,219,0)",
-          "0px 0px 15px rgba(164,63,219,0.2)",
-          "0px 0px 0px rgba(164,63,219,0)"
-        ],
-      }}
-      transition={{
-        duration: 3,             // Duration bariye 3s kora hoyeche jate slow hoy
-        repeat: Infinity,
-        repeatDelay: 1,          // Ekta cycle shesh hobar por 1s gap thakbe
-        delay: index * 0.8,      // Sequential gap-tao ektu bariye deya hoyeche
-        ease: "easeInOut",
-      }}
-      className="rounded-xl border" 
-    >
-      <SocialLink 
-        href={social.href} 
-        icon={social.icon} 
-        label={social.label} 
-      />
-    </motion.div>
-  ))}
-</div>
+        <div className="flex justify-center md:justify-start gap-3 mt-8">
+          {[
+            {
+              href: "https://github.com/nishatjahan62",
+              icon: <FaGithub />,
+              label: "GitHub",
+            },
+            {
+              href: "https://www.linkedin.com/in/nishatjahan62/",
+              icon: <FaLinkedin />,
+              label: "LinkedIn",
+            },
+            {
+              href: "https://t.me/nishatjahan62",
+              icon: <FaTelegram />,
+              label: "Telegram",
+            },
+            {
+              href: "mailto:nishatjahan62@gmail.com",
+              icon: <HiOutlineMail />,
+              label: "Email",
+            },
+            {
+              href: "https://wa.me/8801830322562",
+              icon: <FaWhatsapp />,
+              label: "WhatsApp",
+            },
+          ].map((social, index) => (
+            <motion.div
+              key={index}
+              animate={{
+                // Dhire dhire color change hobe
+                color: ["#9ca3af", "#A43FDB", "#9ca3af"],
+                borderColor: [
+                  "rgba(164,63,219,0.1)",
+                  "rgba(164,63,219,0.8)",
+                  "rgba(164,63,219,0.1)",
+                ],
+                boxShadow: [
+                  "0px 0px 0px rgba(164,63,219,0)",
+                  "0px 0px 15px rgba(164,63,219,0.2)",
+                  "0px 0px 0px rgba(164,63,219,0)",
+                ],
+              }}
+              transition={{
+                duration: 3, // Duration bariye 3s kora hoyeche jate slow hoy
+                repeat: Infinity,
+                repeatDelay: 1, // Ekta cycle shesh hobar por 1s gap thakbe
+                delay: index * 0.8, // Sequential gap-tao ektu bariye deya hoyeche
+                ease: "easeInOut",
+              }}
+              className="rounded-xl border"
+            >
+              <SocialLink
+                href={social.href}
+                icon={social.icon}
+                label={social.label}
+              />
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
