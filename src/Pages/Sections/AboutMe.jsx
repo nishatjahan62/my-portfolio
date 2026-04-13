@@ -48,8 +48,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="py-20 px-6 sm:px-10 lg:px-20 bg-gradient-to-b from-primary/5 via-secondary/5 to-white 
-                 dark:from-[#0B1120] dark:via-[#121A2B] dark:to-[#0B1120] transition-all duration-500"
+      className="py-20 px-6 sm:px-10 lg:px-20  transition-all duration-500"
     >
       {/* Section Header */}
       <motion.div

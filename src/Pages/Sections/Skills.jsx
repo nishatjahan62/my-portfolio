@@ -40,10 +40,10 @@ const techData = {
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
     link: "https://www.mongodb.com/",
   },
-  Mongoose: {
-    logo: "https://raw.githubusercontent.com/gilbarbara/logos/main/logos/mongoose.svg",
-    link: "https://mongoosejs.com/",
-  },
+ Mongoose: {
+  logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongoose/mongoose-original.svg",
+  link: "https://mongoosejs.com/",
+},
   Git: {
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
     link: "https://git-scm.com/",
@@ -74,7 +74,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="py-14 px-8 sm:px-10 sm:py-16 flex flex-col items-center justify-center bg-white dark:bg-[#1E2939]"
+      className="py-14 px-8 sm:px-10 sm:py-16 flex flex-col items-center justify-center "
     >
       <motion.h2
         initial={{ opacity: 0, y: 50 }}
