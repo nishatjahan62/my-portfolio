@@ -102,7 +102,7 @@ const projects = [
   {
     id: 4,
     name: "pick&pack",
-    image: "pick&pack.png",
+    image: "/pick&pack.png",
     overview:
       "A smart inventory & order management system to manage products, stock levels, customer orders, and fulfillment workflows — with role-based access for Admin, Manager, and User.",
     keyFeatures: [
