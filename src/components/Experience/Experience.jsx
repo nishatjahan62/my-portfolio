@@ -120,8 +120,8 @@ const Experience = () => {
                     {exp.tags.map((tag, i) => (
                       <span
                         key={i}
-                        className="text-xs px-4 py-1.5 rounded-full font-mono
-                                   bg-dark/10 dark:bg-white/10 border border-primary text-primary"
+                        className="text-[11px] px-2.5 py-0.5 rounded-full font-medium
+                               bg-primary/8 dark:bg-primary/15 text-primary border border-primary/15"
                       >
                         {tag}
                       </span>
