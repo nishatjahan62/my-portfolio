@@ -62,7 +62,7 @@ const projects = [
     tools: ["React", "Tailwind", "Stripe", "Firebase", "MongoDB", "Express", "JWT"],
     links: {
       live: "https://knowledge-edge.netlify.app/",
-      frontend: "https://github.com/nishatjahan62/Knowledge-Edge-projectd",
+      frontend: "https://github.com/nishatjahan62/Knowledge-Edge-project",
       backend: "https://github.com/nishatjahan62/Knowledge-Edge-project-backend",
     },
   },
