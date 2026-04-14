@@ -6,6 +6,7 @@ import Projects from "../Pages/Sections/Projects";
 import Contact from "../Pages/Sections/Contact";
 import Education from "../Pages/Sections/Education/Education";
 import Experience from "../components/Experience/Experience";
+import Services from "../Pages/Sections/services";
 
 const Home = () => {
   return (
@@ -16,18 +17,22 @@ const Home = () => {
       <div id="about-me">
         <AboutMe></AboutMe>
       </div>
-      <div  id="skills">
+      <div id="skills">
         <Skills></Skills>
-      </div>
-       <div  id="education">
-      <Education></Education>
-      </div>
-       <div  id="experience">
-      <Experience></Experience>
       </div>
       <div id="projects">
         <Projects></Projects>
       </div>
+      <div id="education">
+        <Education></Education>
+      </div>
+      <div id="experience">
+        <Experience></Experience>
+      </div>
+      <div id="services">
+        <Services></Services>
+      </div>
+
       <div id="contact">
         <Contact></Contact>
       </div>

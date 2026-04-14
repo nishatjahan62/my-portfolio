@@ -83,7 +83,7 @@ const Experience = () => {
                     <div>
                       <div className="flex items-center gap-2 mb-1">
                         <FaBriefcase className="text-primary" />
-                        <h3 className="text-xl font-bold text-white">
+                        <h3 className="text-xl font-bold dark:text-white ">
                           {exp.role}
                         </h3>
                       </div>
@@ -105,13 +105,13 @@ const Experience = () => {
                   </div>
 
                   {/* Location */}
-                  <div className="flex items-center gap-2 text-sm text-gray-400 mb-4">
+                  <div className="flex items-center gap-2 text-sm dark:text-gray-400 mb-4">
                     <FaMapMarkerAlt className="text-primary/70" />
                     {exp.location}
                   </div>
 
                   {/* Description */}
-                  <p className="text-gray-300 leading-relaxed mb-6">
+                  <p className=" text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
                     {exp.description}
                   </p>
 
@@ -121,7 +121,7 @@ const Experience = () => {
                       <span
                         key={i}
                         className="text-xs px-4 py-1.5 rounded-full font-mono
-                                   bg-white/10 border border-green-500/30 text-green-400"
+                                   bg-dark/10 dark:bg-white/10 border border-primary text-primary"
                       >
                         {tag}
                       </span>

@@ -6,6 +6,7 @@ import Footer from '../components/Footer/Footer';
 import CustomCursor from '../components/CustomCorsur';
 import FloatingWhatsApp from '../components/floatingWhatsup';
 import ReactLenis from 'lenis/react';
+import ScrollToTop from '../components/scrollToTop';
 // import FloatingWhatsApp from '../components/FloatingWhatsApp';
 
 /* ── Global Particle Canvas ── */
@@ -93,7 +94,10 @@ const Orb = ({ className, delay = 0, duration = 7 }) => (
   />
 );
 
-<ReactLenis
+
+const Layout = () => {
+  return (
+    <ReactLenis
       root
       options={{
         duration: 1.35,
@@ -104,9 +108,7 @@ const Orb = ({ className, delay = 0, duration = 7 }) => (
         touchMultiplier: 2,
         lerp: 0.1,           // smoothness control
       }}
-/>
-const Layout = () => {
-  return (
+>
     <div className="relative min-h-screen bg-gradient-to-br from-primary/5 via-secondary/10 to-white dark:from-[#0B1120] dark:via-[#121A2B] dark:to-[#0B1120] transition-colors duration-500">
 
       {/* ── Global animated background ── */}
@@ -121,6 +123,7 @@ const Layout = () => {
       {/* ── Main content (above bg) ── */}
       <div className="relative" style={{ zIndex: 1 }}>
         <CustomCursor></CustomCursor>
+        <ScrollToTop></ScrollToTop>
         <FloatingWhatsApp></FloatingWhatsApp>
         <Navbar />
         <Outlet />
@@ -132,6 +135,7 @@ const Layout = () => {
         {/* <FloatingWhatsApp /> */}
       </div>
     </div>
+    </ReactLenis>
   );
 };
 

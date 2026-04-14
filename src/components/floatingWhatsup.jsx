@@ -58,7 +58,7 @@ const FloatingWhatsApp = () => {
         whileTap={{ scale: 0.92 }}
         onMouseEnter={() => setShowTooltip(true)}
         onMouseLeave={() => setShowTooltip(false)}
-        className="relative w-14 h-14 rounded-full flex items-center justify-center
+        className="relative w-12 h-12 rounded-full flex items-center justify-center
                    bg-[#25D366] shadow-lg shadow-[#25D366]/50
                    hover:shadow-2xl hover:shadow-[#25D366]/70 
                    transition-all duration-300"

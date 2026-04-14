@@ -255,9 +255,7 @@ const Hero = () => {
       id="hero"
       className="relative flex flex-col md:flex-row items-center justify-center
                  px-6 sm:px-10 lg:px-20 py-10 pb-16 pt-24 sm:pt-32
-                 bg-gradient-to-br from-primary/5 via-secondary/10 to-white
-                 dark:from-[#0B1120] dark:via-[#121A2B] dark:to-[#0B1120]
-                 transition-all duration-500 overflow-hidden min-h-screen"
+                "
     >
       <ParticleCanvas />
       <Orb

@@ -96,8 +96,8 @@ const CustomCursor = () => {
       </AnimatePresence>
 
       {/* ── Outer ring (নরমাল সাইজ রাখা হয়েছে) ── */}
-      <motion.div
-        className="fixed top-0 left-0 rounded-full pointer-events-none z-[9999]"
+  <motion.div
+        className="fixed top-0 left-0 rounded-full pointer-events-none z-[100000]" // z-index বাড়ানো হলো
         style={{
           x: ringX,
           y: ringY,
@@ -122,7 +122,7 @@ const CustomCursor = () => {
 
       {/* ── Inner dot (snappy) ── */}
       <motion.div
-        className="fixed top-0 left-0 rounded-full pointer-events-none z-[9999]"
+        className="fixed top-0 left-0 rounded-full pointer-events-none z-[100000]" 
         style={{
           x: dotX,
           y: dotY,

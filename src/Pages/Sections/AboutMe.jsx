@@ -48,7 +48,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="py-20 px-6 sm:px-10 lg:px-20  transition-all duration-500"
+      className="py-20 px-6 sm:px-10 lg:px-20"
     >
       {/* Section Header */}
       <motion.div
