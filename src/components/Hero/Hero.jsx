@@ -327,7 +327,7 @@ const Hero = () => {
                      text-primary border border-primary/25"
         >
           <span>👩‍💻</span>
-          Jr. Full Stack Developer 
+          Jr. Full Stack Developer · Backend Focused 
         </motion.div>
 
         {/* Name */}

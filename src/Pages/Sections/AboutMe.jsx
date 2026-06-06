@@ -66,19 +66,15 @@ const About = () => {
   
  {/* Intro */}
 <div className="mb-2">
-  <p className="text-gray-700 dark:text-gray-200 text-base leading-relaxed">
-    Hi, I'm{" "}
-    <span className="text-primary font-semibold">Nishat Jahan</span>
-    {" "}— a Junior Full-Stack Developer working with technologies like{" "}
-    <span className="text-primary font-medium">Node.js</span>,{" "}
-    <span className="text-primary font-medium">Express.js</span>,{" "}
-    <span className="text-primary font-medium">Next.js</span>, {" "}
-    <span className="text-primary font-medium">TypeScript</span>,
-    with a growing focus on backend architecture.
-    Currently learning{" "}
-    <span className="text-primary font-medium">SQL</span>{" "}
-    while exploring how modern applications work behind the scenes.
-  </p>
+ <p className="text-gray-700 dark:text-gray-200 text-base leading-relaxed">
+  Hi, I'm{" "}
+  <span className="text-primary font-semibold">Nishat Jahan</span>
+  {" "}— a{" "}
+  <span className="text-primary font-semibold">Junior Full-Stack Developer</span>
+  {" "}working with the MERN stack (MongoDB, Express.js, React, Node.js),
+  Next.js and TypeScript, with a growing focus on backend architecture.
+  Currently exploring SQL while exploring how modern applications work behind the scenes.
+</p>
 </div>
 
   {/* Divider */}
