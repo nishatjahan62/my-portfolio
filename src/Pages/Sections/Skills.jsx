@@ -28,6 +28,10 @@ const techData = {
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
     link: "https://nextjs.org/",
   },
+  TypeScript: {
+  logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
+  link: "https://www.typescriptlang.org/",
+},
   Node: {
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
     link: "https://nodejs.org/",
@@ -59,7 +63,7 @@ const techData = {
 };
 
 const skills = {
-  Frontend: ["HTML5", "CSS3", "JavaScript", "React", "Tailwind", "Next.js"],
+  Frontend: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Tailwind", "Next.js"],
   Backend: ["Node", "Express", "MongoDB", "Mongoose"],
   Tools: ["Git", "GitHub", "VSCode"],
 };

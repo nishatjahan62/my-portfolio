@@ -5,11 +5,12 @@ import { FaBookOpen } from "react-icons/fa";
 const Education = () => {
   const educationData = [
     {
-      degree: "Higher Secondary Certificate (HSC)",
-      duration: "2023-2024",
-      group: "Business Studies",
-      college: "Govt. Hazi Mohammad Mohsin College",
-      location: "Chattogram, Bangladesh",
+      degree: "Bachelor of Business Administration (BBA)",
+      year:"First Year",
+      duration: "June 2026 - Present",
+      group: "Accounting",
+      college: "National University Bangladesh",
+      location: "Bangladesh",
     },
   ];
 
@@ -60,7 +61,7 @@ const Education = () => {
       <p className="text-lg font-semibold text-gray-900 dark:text-white poppins">
         {edu.degree}
       </p>
-   
+   <p className="text-gray-600 dark:text-gray-400 text-sm">{edu.year}</p>
       <p className="text-gray-600 dark:text-gray-400 text-sm">{edu.duration}</p>
     </div>
 

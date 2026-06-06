@@ -3,18 +3,18 @@ import { motion } from "framer-motion";
 import { FaBriefcase, FaMapMarkerAlt, FaCircle } from "react-icons/fa";
 
 const experiences = [
-  {
-    id: 1,
-    role: "Junior Full-Stack Developer",
-    company: "Pixlab Solutions",
-    location: "Sylhet, Bangladesh",
-    duration: "Ongoing",
-    type: "Contractual",
-    description:
-      "Working as a contractual Junior Full-Stack Developer, building and maintaining web applications using modern technologies including the MERN stack and Next.js.",
-    tags: ["MERN Stack", "Next.js", "MongoDB", "React", "Node.js"],
-    current: true,
-  },
+{
+  id: 1,
+  role: "Junior Full-Stack Developer",
+  company: "Pixlab Solutions",
+  location: "Sylhet, Bangladesh",
+  duration: "Feb 2026 – May 2026",
+  type: "Contractual",
+  description:
+    "Worked as a contractual Junior Full-Stack Developer, building and maintaining web applications using modern technologies including the MERN stack and Next.js.",
+  tags: ["MERN Stack", "Next.js", "MongoDB", "React", "Node.js"],
+  current: false,  
+},
 ];
 
 const Experience = () => {
@@ -23,7 +23,7 @@ const Experience = () => {
       id="experience"
       className="relative py-14 px-8 sm:px-10 sm:py-16 overflow-hidden"
     >
-      {/* Background (আগের মতোই রাখা হয়েছে) */}
+     
 
       <div className="relative z-10 flex flex-col items-center justify-center">
         <motion.h2
@@ -91,7 +91,7 @@ const Experience = () => {
                     </div>
 
                     <div className="flex flex-col items-end gap-2">
-                      {exp.current && (
+                      {exp.current || (
                         <span className="flex items-center gap-1.5 px-4 py-1 text-xs font-semibold rounded-full 
                                          bg-green-500/10 border border-green-500/30 text-green-400">
                           <FaCircle className="text-[6px] animate-pulse" />

@@ -187,44 +187,52 @@ const Contact = () => {
         </motion.div>
 
         {/* Contact Form */}
-        <motion.form
-          onSubmit={handleSubmit}
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          className="bg-gray-50 dark:bg-[#1e293b] p-6 sm:p-10 rounded-3xl space-y-6"
-        >
-          <input
-            type="text"
-            name="name"
-            placeholder="Your Name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            className="w-full px-5 py-3 rounded-xl bg-transparent border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-primary outline-none"
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="w-full px-5 py-3 rounded-xl bg-transparent border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-primary outline-none"
-          />
-          <textarea
-            name="message"
-            rows={5}
-            placeholder="Your Message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-            className="w-full px-5 py-3 rounded-xl bg-transparent border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-primary outline-none resize-y"
-          />
-          <Button type="submit" icon={HiOutlineMail} disabled={loading} className="w-full">
-            {loading ? "Sending..." : "Send Message"}
-          </Button>
-        </motion.form>
+       <motion.form
+  onSubmit={handleSubmit}
+  initial={{ opacity: 0, x: 30 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.6 }}
+  className="p-6 sm:p-10 rounded-3xl space-y-6"
+>
+  <input
+    type="text"
+    name="name"
+    placeholder="Your Name"
+    value={formData.name}
+    onChange={handleChange}
+    required
+    className="w-full px-5 py-3 rounded-xl bg-transparent border border-gray-600
+               focus:border-primary focus:ring-0 outline-none transition-colors duration-300
+               focus:bg-transparent [&:-webkit-autofill]:![background-color:transparent]
+               autofill:bg-transparent text-gray-200 placeholder:text-gray-500"
+  />
+  <input
+    type="email"
+    name="email"
+    placeholder="Your Email"
+    value={formData.email}
+    onChange={handleChange}
+    required
+    className="w-full px-5 py-3 rounded-xl bg-transparent border border-gray-600
+               focus:border-primary focus:ring-0 outline-none transition-colors duration-300
+               focus:bg-transparent [&:-webkit-autofill]:![background-color:transparent]
+               autofill:bg-transparent text-gray-200 placeholder:text-gray-500"
+  />
+  <textarea
+    name="message"
+    rows={5}
+    placeholder="Your Message"
+    value={formData.message}
+    onChange={handleChange}
+    required
+    className="w-full px-5 py-3 rounded-xl bg-transparent border border-gray-600
+               focus:border-primary focus:ring-0 outline-none resize-y transition-colors duration-300
+               text-gray-200 placeholder:text-gray-500"
+  />
+  <Button type="submit" icon={HiOutlineMail} disabled={loading} className="w-full">
+    {loading ? "Sending..." : "Send Message"}
+  </Button>
+</motion.form>
       </div>
     </section>
   );

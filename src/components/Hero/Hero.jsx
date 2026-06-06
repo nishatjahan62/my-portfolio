@@ -327,7 +327,7 @@ const Hero = () => {
                      text-primary border border-primary/25"
         >
           <span>👩‍💻</span>
-          Jr. Full Stack Developer · MERN Stack
+          Jr. Full Stack Developer 
         </motion.div>
 
         {/* Name */}
@@ -372,20 +372,21 @@ const Hero = () => {
         </motion.h1>
 
         {/* Description */}
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.5 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="mt-6 text-gray-600 dark:text-gray-400 leading-relaxed text-base md:text-lg"
-        >
-          Passionate about building{" "}
-          <span className="text-primary font-medium">modern</span>,{" "}
-          <span className="text-secondary font-medium">interactive</span>, and{" "}
-          <span className="text-primary font-medium">scalable</span> web
-          applications. I love blending design and functionality to create
-          seamless digital experiences.
-        </motion.p>
+       {/* Description */}
+<motion.p
+  initial={{ opacity: 0, y: 16 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: false, amount: 0.5 }}
+  transition={{ duration: 0.7, delay: 0.3 }}
+  className="mt-6 text-gray-600 dark:text-gray-400 leading-relaxed text-base md:text-lg"
+>
+  In love with{" "}
+  <span className="text-primary font-medium">backend architecture</span> —
+  exploring the logic behind applications, working with{" "}
+  <span className="text-secondary font-medium">APIs</span>, and actively
+  growing an{" "}
+  <span className="text-primary font-medium">engineering mindset</span>.
+</motion.p>
 
         {/* Buttons */}
         <motion.div
