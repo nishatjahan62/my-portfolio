@@ -1,144 +1,193 @@
-import React, { useEffect, useState } from "react";
-import { motion, useMotionValue, useSpring, AnimatePresence } from "framer-motion";
+import React, { useEffect, useState, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const TAIL_LENGTH = 20;
+
+const IDLE_KEYFRAMES = `
+  @keyframes cursorFloat {
+    0%, 100% { transform: translate(-50%, -50%) translateY(0px) scale(1); }
+    50%       { transform: translate(-50%, -50%) translateY(-8px) scale(1.18); }
+  }
+`;
 
 const CustomCursor = () => {
+  const [isVisible, setIsVisible] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-  const [clicks, setClicks] = useState([]); // ক্লিকের পজিশন স্টোর করার জন্য
+  const [isIdle, setIsIdle] = useState(false);
+  const [clicks, setClicks] = useState([]);
+  const [tail, setTail] = useState(
+    Array.from({ length: TAIL_LENGTH }, () => ({ x: -100, y: -100 }))
+  );
 
-  const rawX = useMotionValue(-100);
-  const rawY = useMotionValue(-100);
-
-  // Main dot — snappy
-  const dotX = useSpring(rawX, { stiffness: 700, damping: 35 });
-  const dotY = useSpring(rawY, { stiffness: 700, damping: 35 });
-
-  // Ring — laggy (follows with delay)
-  const ringX = useSpring(rawX, { stiffness: 150, damping: 20 });
-  const ringY = useSpring(rawY, { stiffness: 150, damping: 20 });
+  const posRef = useRef({ x: -100, y: -100 });
+  const tailRef = useRef(
+    Array.from({ length: TAIL_LENGTH }, () => ({ x: -100, y: -100 }))
+  );
+  const frameRef = useRef(null);
+  const idleTimer = useRef(null);
 
   useEffect(() => {
-    // Only show on desktop
-    if (window.innerWidth < 1024) return;
+    if (typeof window !== "undefined" && window.innerWidth < 1024) return;
 
-    const move = (e) => {
-      rawX.set(e.clientX);
-      rawY.set(e.clientY);
-      if (!isVisible) setIsVisible(true);
+    const resetIdle = () => {
+      setIsIdle(false);
+      clearTimeout(idleTimer.current);
+      idleTimer.current = setTimeout(() => setIsIdle(true), 1500);
     };
 
-    const handleMouseOver = (e) => {
+    const onMove = (e) => {
+      posRef.current = { x: e.clientX, y: e.clientY };
+      if (!isVisible) setIsVisible(true);
+      resetIdle();
+    };
+
+    const onOver = (e) => {
       const target = e.target.closest("a, button, [data-cursor]");
       setIsHovering(!!target);
     };
 
-    const handleMouseDown = (e) => {
+    const onDown = (e) => {
       setIsClicking(true);
-      // ক্লিক করলে একটি রি্পল ইফেক্ট তৈরি হবে
-      const newClick = { id: Date.now(), x: e.clientX, y: e.clientY };
-      setClicks((prev) => [...prev, newClick]);
-      setTimeout(() => {
-        setClicks((prev) => prev.filter((c) => c.id !== newClick.id));
-      }, 800);
+      const id = Date.now();
+      setClicks((prev) => [...prev, { id, x: e.clientX, y: e.clientY }]);
+      setTimeout(() => setClicks((prev) => prev.filter((c) => c.id !== id)), 700);
+      resetIdle();
     };
 
-    const handleMouseUp = () => setIsClicking(false);
-    const handleMouseLeave = () => setIsVisible(false);
-    const handleMouseEnter = () => setIsVisible(true);
+    const onUp = () => setIsClicking(false);
+    const onLeave = () => { setIsVisible(false); setIsIdle(false); };
+    const onEnter = () => setIsVisible(true);
 
-    window.addEventListener("mousemove", move);
-    window.addEventListener("mouseover", handleMouseOver);
-    window.addEventListener("mousedown", handleMouseDown);
-    window.addEventListener("mouseup", handleMouseUp);
-    document.documentElement.addEventListener("mouseleave", handleMouseLeave);
-    document.documentElement.addEventListener("mouseenter", handleMouseEnter);
+    window.addEventListener("mousemove", onMove);
+    window.addEventListener("mouseover", onOver);
+    window.addEventListener("mousedown", onDown);
+    window.addEventListener("mouseup", onUp);
+    document.documentElement.addEventListener("mouseleave", onLeave);
+    document.documentElement.addEventListener("mouseenter", onEnter);
+
+    // Start idle timer immediately
+    resetIdle();
+
+    const animate = () => {
+      const prev = tailRef.current;
+      const head = posRef.current;
+      const next = [head];
+      for (let i = 1; i < TAIL_LENGTH; i++) {
+        next.push({
+          x: prev[i - 1].x + (prev[i].x - prev[i - 1].x) * 0.35,
+          y: prev[i - 1].y + (prev[i].y - prev[i - 1].y) * 0.35,
+        });
+      }
+      tailRef.current = next;
+      setTail([...next]);
+      frameRef.current = requestAnimationFrame(animate);
+    };
+    frameRef.current = requestAnimationFrame(animate);
 
     return () => {
-      window.removeEventListener("mousemove", move);
-      window.removeEventListener("mouseover", handleMouseOver);
-      window.removeEventListener("mousedown", handleMouseDown);
-      window.removeEventListener("mouseup", handleMouseUp);
-      document.documentElement.removeEventListener("mouseleave", handleMouseLeave);
-      document.documentElement.removeEventListener("mouseenter", handleMouseEnter);
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("mouseover", onOver);
+      window.removeEventListener("mousedown", onDown);
+      window.removeEventListener("mouseup", onUp);
+      document.documentElement.removeEventListener("mouseleave", onLeave);
+      document.documentElement.removeEventListener("mouseenter", onEnter);
+      cancelAnimationFrame(frameRef.current);
+      clearTimeout(idleTimer.current);
     };
-  }, [isVisible]);
+  }, []);
 
   if (typeof window !== "undefined" && window.innerWidth < 1024) return null;
 
+  // Dot size: idle/hover/click
+  const dotSize = isClicking ? 14 : isHovering ? 26 : 18;
+
   return (
     <>
-      {/* Hide default cursor globally */}
-      <style>{`
-        * { cursor: none !important; }
-      `}</style>
+      <style>{`* { cursor: none !important; } ${IDLE_KEYFRAMES}`}</style>
 
-      {/* ── Click Ripple Animation (ক্লিক করলে যে ওয়েব তৈরি হবে) ── */}
+      {/* ── Tail dots ── */}
+      {isVisible &&
+        tail.map((point, i) => {
+          const progress = 1 - i / TAIL_LENGTH;
+          const size = Math.max(2, 10 * progress);
+          const opacity = progress * 0.6;
+          const r = Math.round(164 + (99 - 164) * (1 - progress));
+          const g = Math.round(63 + (102 - 63) * (1 - progress));
+          const b = Math.round(219 + (241 - 219) * (1 - progress));
+
+          return (
+            <div
+              key={i}
+              style={{
+                position: "fixed",
+                left: point.x,
+                top: point.y,
+                width: size,
+                height: size,
+                borderRadius: "50%",
+                background: `rgba(${r},${g},${b},${opacity})`,
+                transform: "translate(-50%, -50%)",
+                pointerEvents: "none",
+                zIndex: 99998,
+                filter: i < 5 ? `blur(${(5 - i) * 0.4}px)` : "none",
+              }}
+            />
+          );
+        })}
+
+      {/* ── Main dot ── */}
+      {isVisible && (
+        <div
+          style={{
+            position: "fixed",
+            left: tail[0]?.x ?? -100,
+            top: tail[0]?.y ?? -100,
+            width: dotSize,
+            height: dotSize,
+            borderRadius: "50%",
+            background: "linear-gradient(135deg, #A43FDB, #6366f1)",
+            boxShadow: isIdle
+              ? "0 0 20px rgba(164,63,219,1), 0 0 40px rgba(164,63,219,0.5)"
+              : isHovering
+              ? "0 0 16px rgba(164,63,219,0.9), 0 0 32px rgba(164,63,219,0.4)"
+              : "0 0 10px rgba(164,63,219,0.7)",
+            // When idle: CSS animation handles transform; otherwise set it manually
+            transform: isIdle ? undefined : "translate(-50%, -50%)",
+            animation: isIdle
+              ? "cursorFloat 1.8s ease-in-out infinite"
+              : "none",
+            pointerEvents: "none",
+            zIndex: 99999,
+            transition: "width 0.15s, height 0.15s, box-shadow 0.3s",
+          }}
+        />
+      )}
+
+      {/* ── Click ripple ── */}
       <AnimatePresence>
         {clicks.map((click) => (
           <motion.div
             key={click.id}
-            initial={{ opacity: 0.5, scale: 0 }}
-            animate={{ opacity: 0, scale: 4 }}
+            initial={{ opacity: 0.6, scale: 0 }}
+            animate={{ opacity: 0, scale: 5 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="fixed top-0 left-0 pointer-events-none z-[9998] rounded-full border border-primary/50"
             style={{
+              position: "fixed",
               left: click.x,
               top: click.y,
-              translateX: "-50%",
-              translateY: "-50%",
-              width: "20px",
-              height: "20px",
+              width: 20,
+              height: 20,
+              borderRadius: "50%",
+              border: "1.5px solid rgba(164,63,219,0.6)",
+              transform: "translate(-50%, -50%)",
+              pointerEvents: "none",
+              zIndex: 99997,
             }}
           />
         ))}
       </AnimatePresence>
-
-      {/* ── Outer ring (নরমাল সাইজ রাখা হয়েছে) ── */}
-  <motion.div
-        className="fixed top-0 left-0 rounded-full pointer-events-none z-[100000]" // z-index বাড়ানো হলো
-        style={{
-          x: ringX,
-          y: ringY,
-          translateX: "-50%",
-          translateY: "-50%",
-          background: "rgba(164,63,219,0.08)",
-          backdropFilter: "blur(4px)",
-          WebkitBackdropFilter: "blur(4px)",
-          border: `1.5px solid ${isHovering ? "rgba(164,63,219,0.7)" : "rgba(164,63,219,0.35)"}`,
-          boxShadow: isHovering 
-            ? "0 0 18px rgba(164,63,219,0.3)" 
-            : "0 0 8px rgba(164,63,219,0.1)",
-        }}
-        animate={{
-          // হোভার করলেও সাইজ ৩৬ থাকবে (বড় হবে না)
-          width: isClicking ? 28 : 36, 
-          height: isClicking ? 28 : 36,
-          opacity: isVisible ? 1 : 0,
-        }}
-        transition={{ duration: 0.2 }}
-      />
-
-      {/* ── Inner dot (snappy) ── */}
-      <motion.div
-        className="fixed top-0 left-0 rounded-full pointer-events-none z-[100000]" 
-        style={{
-          x: dotX,
-          y: dotY,
-          translateX: "-50%",
-          translateY: "-50%",
-          background: "linear-gradient(135deg, #A43FDB, #6366f1)",
-          boxShadow: "0 0 10px rgba(164,63,219,0.6)",
-        }}
-        animate={{
-          width: isClicking ? 4 : 6,
-          height: isClicking ? 4 : 6,
-          opacity: isVisible ? 1 : 0,
-          scale: isClicking ? 0.6 : 1,
-        }}
-        transition={{ duration: 0.1 }}
-      />
     </>
   );
 };
