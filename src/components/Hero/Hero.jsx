@@ -322,7 +322,7 @@ const Hero = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: false, amount: 0.5 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 text-base font-medium px-4 py-1.5
+          className="inline-flex items-center gap-2 text-[16px] font-medium px-4 py-1.5
                      rounded-full mb-5 bg-primary/10 dark:bg-primary/20
                      text-primary border border-primary/25"
         >
@@ -336,12 +336,12 @@ const Hero = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.5 }}
           transition={{ duration: 0.65 }}
-          className="text-2xl sm:text-3xl md:text-5xl font-extrabold leading-tight poppins
+          className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight poppins
                      text-gray-900 dark:text-white tracking-tight"
         >
           Hi, I'm{" "}
           <span className="relative inline-block">
-            <span className="bg-gradient-to-r from-primary via-purple-500 to-secondary bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary  via-purple-500 to-secondary bg-clip-text text-transparent">
               Nishat
             </span>
             <motion.svg
@@ -379,13 +379,12 @@ const Hero = () => {
   viewport={{ once: false, amount: 0.5 }}
   transition={{ duration: 0.7, delay: 0.3 }}
   className="mt-6 text-gray-600 dark:text-gray-400 leading-relaxed text-base md:text-lg"
->
-  In love with{" "}
-  <span className="text-primary font-medium">backend architecture</span> —
-  exploring the logic behind applications, working with{" "}
-  <span className="text-secondary font-medium">APIs</span>, and actively
-  growing an{" "}
-  <span className="text-primary font-medium">engineering mindset</span>.
+> A  <span className="text-primary font-medium"> junior Full-Stack developer</span>{" "} working with the{" "}
+<span className="text-secondary font-medium">MERN stack</span>, diving
+deeper into{" "}
+<span className="text-primary font-medium">backend architecture</span> and
+databases, and actively building an{" "}
+<span className="text-secondary font-medium">engineering mindset.</span>
 </motion.p>
 
         {/* Buttons */}
