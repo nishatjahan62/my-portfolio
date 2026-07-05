@@ -48,7 +48,7 @@ const Projects = () => {
             whileHover={{ y: -6, transition: { duration: 0.25 } }}
             className="flex flex-col rounded-3xl overflow-hidden
                        bg-white/80 dark:bg-[#1a2235]/80 backdrop-blur-md
-                       border border-primary/10 hover:border-primary/35
+                       border border-primary/40 hover:border-primary/35
                        shadow-md hover:shadow-xl hover:shadow-primary/10
                        transition-all duration-300"
           >
@@ -137,7 +137,7 @@ const Projects = () => {
         ))}
       </div>
 
-      {/* Pagination Controls - Sundor Design */}
+      {/* Pagination Controls  */}
       {totalPages > 1 && (
         <div className="flex justify-center items-center gap-3 mt-16">
           <button

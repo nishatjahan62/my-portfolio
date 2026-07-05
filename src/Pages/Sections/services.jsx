@@ -86,7 +86,9 @@ const Services = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="p-8 rounded-2xl bg-white/5 dark:bg-[#1e293b]/40 border border-gray-200 dark:border-white/10 backdrop-blur-sm cursor-pointer hover:border-primary transition-all group shadow-sm"
+              className="p-8 rounded-2xl bg-white/5 dark:bg-[#1e293b]/40 border border-primary/45 hover:border-primary
+                       shadow-md hover:shadow-md hover:shadow-primary/25
+                       transition-all duration-300"
               onClick={() => setSelectedService(service)}
             >
               <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${service.color} flex items-center justify-center text-primary mb-6 text-2xl group-hover:scale-110 transition-transform`}>
