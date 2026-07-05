@@ -1,92 +1,28 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaLaptopCode, FaServer, FaTools } from "react-icons/fa";
-
-// Technology logos + links
-const techData = {
-  HTML5: {
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
-    link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
-  },
-  CSS3: {
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
-    link: "https://developer.mozilla.org/en-US/docs/Web/CSS",
-  },
-  JavaScript: {
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-    link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-  },
-  React: {
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-    link: "https://reactjs.org/",
-  },
-  Tailwind: {
-    logo: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg",
-    link: "https://tailwindcss.com/",
-  },
-  "Next.js": {
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
-    link: "https://nextjs.org/",
-  },
-  TypeScript: {
-  logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-  link: "https://www.typescriptlang.org/",
-},
-  Node: {
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-    link: "https://nodejs.org/",
-  },
-  Express: {
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
-    link: "https://expressjs.com/",
-  },
-  MongoDB: {
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-    link: "https://www.mongodb.com/",
-  },
- Mongoose: {
-  logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongoose/mongoose-original.svg",
-  link: "https://mongoosejs.com/",
-},
-  Git: {
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
-    link: "https://git-scm.com/",
-  },
-  GitHub: {
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
-    link: "https://github.com/",
-  },
-  VSCode: {
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
-    link: "https://code.visualstudio.com/",
-  },
-};
-
-const skills = {
-  Frontend: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Tailwind", "Next.js"],
-  Backend: ["Node", "Express", "MongoDB", "Mongoose"],
-  Tools: ["Git", "GitHub", "VSCode"],
-};
+import { FaLaptopCode, FaServer, FaTools, FaDatabase, FaCloudUploadAlt, FaLanguage } from "react-icons/fa";
+import { techData, skills } from "../../data/skillData"; // Import your data
 
 const Skills = () => {
   const categoryIcons = {
+    Languages: <FaLanguage className="text-primary text-2xl" />,
     Frontend: <FaLaptopCode className="text-primary text-2xl" />,
     Backend: <FaServer className="text-primary text-2xl" />,
+    Database: <FaDatabase className="text-primary text-2xl" />,
+    Deployment: <FaCloudUploadAlt className="text-primary text-2xl" />,
     Tools: <FaTools className="text-primary text-2xl" />,
   };
 
   return (
-    <section
-      id="skills"
-      className="py-14 px-8 sm:px-10 sm:py-16 flex flex-col items-center justify-center "
-    >
-      <motion.h2
+    <section id="skills" className="py-16 px-8">
+
+     <motion.h2
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
         className="text-3xl md:text-4xl font-bold text-primary poppins mb-2 text-center"
       >
-        My Skills
+     Technical Expertise
       </motion.h2>
 
       {/* Subtitle */}
@@ -94,40 +30,26 @@ const Skills = () => {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.2 }}
-        className="text-gray-600 dark:text-gray-400 mb-10 text-center max-w-2xl"
+        className="text-gray-600 dark:text-gray-400 mb-10 text-center max-w-2xl mx-auto"
       >
         Technologies I use to build modern, responsive, and scalable web applications.
       </motion.p>
 
-      <div className="grid md:grid-cols-3 gap-8 w-full max-w-6xl">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl mx-auto">
         {Object.entries(skills).map(([category, list], idx) => (
-          <motion.div
-            key={idx}
-            whileHover={{ scale: 1.05 }}
-            className="p-6 rounded-2xl shadow-md bg-[#F8F8F8] dark:bg-[#2B3443] border border-primary/50 
-                       hover:border-primary hover:border-1 hover:shadow-lg transition-all duration-300"
-          >
+          <motion.div key={idx} className="p-6 rounded-2xl shadow-md bg-[#F8F8F8] dark:bg-[#2B3443] border border-primary/20">
             <h3 className="text-xl font-bold text-primary mb-4 flex items-center gap-3">
               {categoryIcons[category]} {category}
             </h3>
-            <ul className="space-y-1">
+            <div className="grid grid-cols-2 gap-2">
               {list.map((skill, index) => (
-                <li
-                  key={index}
-                  className="flex items-center gap-2 p-2 rounded-md hover:bg-primary/10 dark:hover:bg-primary/20 transition-colors"
-                >
-                  <img src={techData[skill].logo} alt={skill} className="w-6 h-6" />
-                  <a
-                    href={techData[skill].link}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="font-medium text-gray-700 dark:text-gray-300 hover:text-primary transition-colors"
-                  >
-                    {skill}
-                  </a>
-                </li>
+                <a key={index} href={techData[skill].link} target="_blank" rel="noreferrer" 
+                   className="flex items-center gap-2 p-2 rounded-md hover:bg-primary/10 transition-colors">
+                  <img src={techData[skill].logo} alt={skill} className="w-5 h-5 object-contain" />
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{skill}</span>
+                </a>
               ))}
-            </ul>
+            </div>
           </motion.div>
         ))}
       </div>
